@@ -1,66 +1,44 @@
-## Foundry
+The whole project is composed of these files:
 
-**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Foundry consists of:
+-FundMe.sol:
 
--   **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
--   **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
--   **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
--   **Chisel**: Fast, utilitarian, and verbose solidity REPL.
+    It is a smart contract that:
 
-## Documentation
+    -Can be funded, but the amount that is going to be funded should be greater than a set limit of USD
 
-https://book.getfoundry.sh/
+    -Tracks all of its funders amd the amount its one of them has totally funded
 
-## Usage
+    -Only the owner of the smart contract can withdraw all the money inside it
 
-### Build
 
-```shell
-$ forge build
-```
+-PriceConverter.sol
 
-### Test
+    It is a smart contract contract that:
 
-```shell
-$ forge test
-```
+    -It is used by the FundMe contract in order to convert ETH amounts in USD
 
-### Format
 
-```shell
-$ forge fmt
-```
+-DeployFundMe.s.sol
 
-### Gas Snapshots
+    -It deploys FundMe contract
 
-```shell
-$ forge snapshot
-```
 
-### Anvil
+-HelperConfig.s.sol
 
-```shell
-$ anvil
-```
+    -It is used by FundMe in order that we get the correct price feed of the ETH/USD pair in the network that we want to use
 
-### Deploy
 
-```shell
-$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
-```
+-Interactions.s.sol
 
-### Cast
+    -It contains functions with which we can fund FundMe and the Owner to Withdraw from FundMe
 
-```shell
-$ cast <subcommand>
-```
 
-### Help
+-FundMeTest.t.sol
 
-```shell
-$ forge --help
-$ anvil --help
-$ cast --help
-```
+    -It include tests the FundMe contract 
+
+
+-InteractionsTests.t.sol
+
+    -It includes test for the contracts of the Interactions.s.sol file
