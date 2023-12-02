@@ -31,7 +31,7 @@ The whole project is composed of these files:
 
 -Interactions.s.sol
 
-    -It contains functions with which we can fund FundMe and the Owner to Withdraw from FundMe
+    -It contains functions with which we can fund FundMe(most_recently_deployed_contract) and the Owner to Withdraw from FundMe
 
 
 -FundMeTest.t.sol
